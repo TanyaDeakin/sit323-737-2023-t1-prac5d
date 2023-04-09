@@ -1,0 +1,26 @@
+services:
+  app1:
+    image: image1
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: container1
+    restart: on-failure
+    ports:
+      - "5001:3000"
+    networks:
+      - my-network
+  app2:
+    image: image2
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: container2
+    restart: on-failure
+    ports:
+      - "5002:3000"
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
